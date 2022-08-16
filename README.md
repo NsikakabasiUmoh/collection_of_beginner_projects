@@ -9,7 +9,21 @@ and learn how to formally present any project on GitHub.
 I chose python programming language, because I am proficient at it than C# at this moment.
 I do plan to repeat most of the projects here with c#
 
-### Problems Faced
+### Lessons Learnt
+To create branches with the git language
+```text
+git branch <new branch name>
+```
+
+Switching between master branch and other branches
+```text
+git checkout <branch name>
+```
+
+Merging branches with master branch
+```text
+git merge <branch name>
+```
 
 # How to Install Python and Run the projects
 First you have to [download python](https://www.python.org/downloads/), 
