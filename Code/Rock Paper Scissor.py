@@ -2,18 +2,21 @@
 import random as rnd
 
 
-def inside(item: str, iterable: tuple) -> bool:
-    if item in iterable:
-        return True
-    else:
-        return False
+class Processes:
+    def __init__(self, iterable):
+        self.iter = iterable
+
+    def inside(self, item: str) -> bool:
+        if item in self.iter:
+            return True
+        else:
+            return False
+
+    def randomize(self) -> str:
+        return rnd.choice(self.iter)
 
 
-def randomize(iterable: tuple) -> str:
-    return rnd.choice(iterable)
-
-
-def processes(iterable: tuple) -> bool:
+def winner(iterable: tuple) -> bool:
     temp_dict = {'rock': 1, 'paper': 2, 'scissor': 3}
     win_tuple = (-2, 1)
 
@@ -25,11 +28,15 @@ def processes(iterable: tuple) -> bool:
         return False
 
 
+# Setup
 play_options = ('rock', 'paper', 'scissor')
+game = Processes(play_options)
+
+# Playing the game
 play = input('Enter choice: ').lower()
-if inside(play, play_options):
-    input_tuple = (play, randomize(play_options))
-    if processes(input_tuple):
+if game.inside(play):
+    input_ = (play, game.randomize())
+    if winner(input_):
         print('You win.')
     else:
         print('Computer beats you.')
