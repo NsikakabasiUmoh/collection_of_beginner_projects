@@ -31,12 +31,24 @@ def winner(iterable: tuple) -> bool:
 # Setup
 play_options = ('rock', 'paper', 'scissor')
 game = Processes(play_options)
+game_limit = 0
 
 # Playing the game
-play = input('Enter choice: ').lower()
-if game.inside(play):
-    input_ = (play, game.randomize())
-    if winner(input_):
-        print('You win.')
+while True:
+    game_limit += 1
+    if game_limit == 4:
+        print('GAME OVER...')
+        break
+
+    play = input('Enter choice: ').lower()
+
+    if game.inside(play):
+        input_ = (play, game.randomize())
+
+        if winner(input_):
+            print('You win.')
+        else:
+            print('Computer beats you.')
     else:
-        print('Computer beats you.')
+        print('END...WRONG INPUT')
+        break
